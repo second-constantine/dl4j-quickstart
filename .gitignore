@@ -19,3 +19,4 @@ gradle
 *.bin
 gradlew
 gradlew.bat
+.DS_Store

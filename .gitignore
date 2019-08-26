@@ -12,5 +12,10 @@ buildNumber.properties
 !/.mvn/wrapper/maven-wrapper.jar
 
 /.idea
+/.gradle
+/build
+gradle
 *.iml
 *.bin
+gradlew
+gradlew.bat

@@ -75,6 +75,18 @@ object EMnistExample {
             multiLayerNetwork = MultiLayerNetwork(multiLayerConfiguration)
             multiLayerNetwork.init()
         }
+        val items = Lists.newArrayList(emnistTest.iterator())
+        for (i in 0 until items.size) {
+            val item = items[i]
+            item.labelNames = emnistTest.labels
+            val result = multiLayerNetwork.predict(item)
+            log.info("\n" + arrayToString(item.features))
+            val trueValue = emnistTest.labels[item.labels.argMax().amaxNumber().toInt()]
+            log.info(result[0] + " and " + trueValue)
+            if (result[0] != trueValue) {
+                break
+            }
+        }
 
         // pass a training listener that reports score every N iterations
         multiLayerNetwork.addListeners(ScoreIterationListener(REPORTING_INTERVAL))
@@ -100,18 +112,6 @@ object EMnistExample {
         log.info("Total epochs: " + earlyStoppingResult.totalEpochs)
         log.info("Best epoch number: " + earlyStoppingResult.bestModelEpoch)
         log.info("Score at best epoch: " + earlyStoppingResult.bestModelScore)
-        val items = Lists.newArrayList(emnistTest.iterator())
-        for (i in 0 until items.size) {
-            val item = items[i]
-            item.labelNames = emnistTest.labels
-            val result = multiLayerNetwork.predict(item)
-            log.info("\n" + arrayToString(item.features))
-            val trueValue = emnistTest.labels[item.labels.argMax().amaxNumber().toInt()]
-            log.info(result[0] + " and " + trueValue)
-            if (result[0] != trueValue) {
-                break
-            }
-        }
         // evaluate basic performance
         val evaluation = multiLayerNetwork.evaluate(emnistTest)
         log.info(evaluation.accuracy())

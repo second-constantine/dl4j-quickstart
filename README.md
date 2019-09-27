@@ -1,4 +1,7 @@
 # dl4j-quickstart
+**description:**
+A emnist simple example with save and load model and check predictions.
+
 **how build (gradle):**
 ```
 gradle build

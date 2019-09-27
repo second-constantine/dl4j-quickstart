@@ -1,10 +1,10 @@
-apply plugin: 'java'
-apply plugin: 'kotlin'
-apply plugin: 'maven'
+apply plugin: "java"
+apply plugin: "kotlin"
+apply plugin: "maven"
 apply plugin: "org.springframework.boot"
 
-group = 'org.deeplearning4j'
-version = '1.0.0-beta2'
+group = "org.deeplearning4j"
+version = "1.0.0-beta2"
 
 description = """"""
 
@@ -12,7 +12,7 @@ buildscript {
     repositories {
         mavenCentral()
         maven {
-            url 'https://plugins.gradle.org/m2/'
+            url "https://plugins.gradle.org/m2/"
         }
     }
     dependencies {
@@ -28,13 +28,15 @@ repositories {
 }
 
 dependencies {
+    compile "org.apache.logging.log4j:log4j-api:2.11.2"
+    compile "org.apache.logging.log4j:log4j-core:2.11.2"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: '1.3.41'
-    compile group: 'org.nd4j', name: 'nd4j-native-platform', version: '1.0.0-beta2'
-    compile group: 'org.deeplearning4j', name: 'deeplearning4j-core', version: '1.0.0-beta2'
-    compile group: 'org.deeplearning4j', name: 'deeplearning4j-ui_2.10', version: '1.0.0-beta2'
-    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.21'
-    compile group: 'commons-cli', name: 'commons-cli', version: '1.2'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:1.3.41"
+    compile "org.nd4j:nd4j-native-platform:1.0.0-beta2"
+    compile "org.deeplearning4j:deeplearning4j-core:1.0.0-beta2"
+    compile "org.deeplearning4j:deeplearning4j-ui_2.10:1.0.0-beta2"
+    compile "org.slf4j:slf4j-simple:1.7.21"
+    compile "commons-cli:commons-cli:1.2"
 }
 
 jar {
